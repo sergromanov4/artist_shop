@@ -5,6 +5,8 @@ ruby '2.5.3'
 
 gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 2.3.2.0'
+gem 'carrierwave', '~> 1.0'
+gem 'pry'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

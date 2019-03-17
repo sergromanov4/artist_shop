@@ -5,6 +5,7 @@ class OrdersController < ApplicationController
   # GET /orders.json
   def index
     @orders = Order.all
+    binding.pry
   end
 
   # GET /orders/1
@@ -69,6 +70,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:title, :description, :price)
+      params.require(:order).permit(:title, :description, :price, :image_for_order)
     end
 end

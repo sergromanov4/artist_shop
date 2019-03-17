@@ -7,20 +7,18 @@
 
       <div class="card" style="width: 18rem;">
           <img class="card-img-top" src="..." alt="Card image cap">
+          <%= image_tag order.image_for_order if order.image_for_order? %>
           <div class="card-body">
-          <h5 class="card-title"><%= order.title %></h5>
-          <p class="card-text"><%= order.description %></p>
-          <p class="card-text"><%= order.price %></p>
-          <p class="card-text"><%= order.status.name %></p>
+          <h5 class="card-title">Title: <%= order.title %></h5>
+          <p><%= link_to 'More Info', order %></p>
+          <p class="card-text">Description: <%= order.description %></p>
+          <p class="card-text">Price: <%= order.price %></p>
+          <p class="card-text">Current status: <%= order.status.name %></p>
 
   </div>
+
+       
     
-        
-        
-        
-        <%= link_to 'Show', order %>
-        <%= link_to 'Edit', edit_order_path(order) %>
-        <%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %>
   
     <% end %>
 
