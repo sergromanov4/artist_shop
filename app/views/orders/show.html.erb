@@ -2,10 +2,10 @@
 
 <p>
   <strong>Title:</strong>
-  <%= @order.title %>
+  <%= @order.title %> | <%= link_to 'Edit', edit_order_path(@order) %> 	
 </p>
 
-	<%= image_tag @order.image_for_order.url if @order.image_for_order? %>
+<%= image_tag @order.image_for_order.url(:large) if @order.image_for_order? %>
 
 <p>
   <strong>Description:</strong>
@@ -14,8 +14,13 @@
 
 <p>
   <strong>Price:</strong>
-  <%= @order.price %>
+  <%= number_to_currency(@order.price)%>
 </p>
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+<p>
+  <strong>Current status:</strong>
+  <%= @order.status.name%>
+</p>
+
+
+
