@@ -5,7 +5,6 @@ class OrdersController < ApplicationController
   # GET /orders.json
   def index
     @orders = Order.all
-    binding.pry
   end
 
   # GET /orders/1

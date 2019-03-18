@@ -6,8 +6,7 @@
     <% @orders.each do |order| %>
 
       <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="..." alt="Card image cap">
-          <%= image_tag order.image_for_order if order.image_for_order? %>
+          <%= image_tag order.image_for_order.url(:thumb), class:"card-img-top" if order.image_for_order? %>
           <div class="card-body">
           <h5 class="card-title">Title: <%= order.title %></h5>
           <p><%= link_to 'More Info', order %></p>

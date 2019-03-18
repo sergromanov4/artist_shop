@@ -5,7 +5,7 @@
   <%= @order.title %>
 </p>
 
-<%= image_tag(@order.image_for_order.url(:large)) if @order.image_for_order? %>
+	<%= image_tag @order.image_for_order.url if @order.image_for_order? %>
 
 <p>
   <strong>Description:</strong>
