@@ -2,8 +2,15 @@
 
 <p>
   <strong>Title:</strong>
-  <%= @order.title %> | <%= link_to 'Edit', edit_order_path(@order) %> 	
-</p>
+  <%= @order.title %> 
+</p> 
+	<% if user_signed_in? && current_user.id == @order.user_id %>
+  		<p>
+  		<%= link_to 'Edit', edit_order_path(@order) %>
+  		|
+ 		<%= link_to 'Destroy', @order, method: :delete, data: { confirm: 'Are you sure?' } %>
+ 		</p>  
+  	<% end %>
 
 <%= image_tag @order.image_for_order.url(:large) if @order.image_for_order? %>
 
