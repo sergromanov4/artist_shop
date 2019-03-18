@@ -27,8 +27,8 @@
   </div>
 
 <div class="field">
-  <%= form.label :status_id if request.path != "/orders/new" %>
-  <%= form.collection_select :status_id, Status.order(:id), :id,:name if request.path != "/orders/new"%>
+  <%= form.label :status_id if request.path != new_order_path %>
+  <%= form.collection_select :status_id, Status.order(:id), :id,:name if request.path != new_order_path %>
 </div>
 
 
