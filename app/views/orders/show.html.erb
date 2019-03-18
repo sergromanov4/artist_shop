@@ -4,7 +4,7 @@
   <strong>Title:</strong>
   <%= @order.title %> 
 </p> 
-	<% if user_signed_in? && current_user.id == @order.user_id %>
+	<% if user_signed_in? && current_user.id == @order.user_id && @order.status_id < 2 %>
   		<p>
 	  		<%= link_to 'Edit', edit_order_path(@order) %>
 	  		|
@@ -28,6 +28,16 @@
   <strong>Current status:</strong>
   <%= @order.status.name%>
 </p>
+
+<% if @order.status_id == 2%>
+	<p>Your order was raited</p>
+	<p>If you agree with pay, <%= link_to 'Edit', edit_order_path(@order) %> status of your order to work</p>
+
+<% elsif @order.status_id == 4%>
+	<p>Your order was painted</p>
+	<p>If you like painted picture, <%= link_to 'Edit', edit_order_path(@order) %> status of your order to paid</p>
+<% end %>
+
 
 
 

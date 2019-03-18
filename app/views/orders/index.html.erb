@@ -12,7 +12,11 @@
             <h4 class="card-title">Title: <%= order.title %> | id: <%= order.id %></h4> 
             <p class="card-text">Сustomer: <%= order.user.email %></p>
             <p class="card-text">Description: <%= order.description %></p>
-            <p class="card-text">Price: <%= number_to_currency(order.price) %></p>
+             <% if order.price %>
+              <p class="card-text">Price: <%= number_to_currency(order.price) %></p>
+              <% else %>
+              <p>Not rated yet</p>
+            <% end %>
             <p class="card-text">Current status: <%= order.status.name %></p>
           </div>
 
