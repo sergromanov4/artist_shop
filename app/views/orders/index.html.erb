@@ -9,12 +9,12 @@
       <div class="card" style="width: 18rem;">
           <%= image_tag order.image_for_order.url(:thumb), class:"card-img-top thumb" if order.image_for_order? %>
           <div class="card-body">
-            <h5 class="card-title">Title: <%= order.title %></h5>
-            <p><%= link_to 'More Info', order %></p>
+            <h5 class="card-title">Title: <%= order.title %></h5> <%= order.id %>
             <p class="card-text">Description: <%= order.description %></p>
             <p class="card-text">Price: <%= number_to_currency(order.price) %></p>
             <p class="card-text">Current status: <%= order.status.name %></p>
           </div>
+          <p><%= link_to 'More Info', order %></p>
           <hr />
        </div>
 
