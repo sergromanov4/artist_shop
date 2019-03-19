@@ -6,7 +6,6 @@ ruby '2.5.3'
 gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 2.3.2.0'
 gem 'carrierwave', '~> 1.0'
-gem 'pry'
 gem "rmagick"
 
 
@@ -50,6 +49,7 @@ end
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
+  gem 'pry'
 end
 
 group :test do

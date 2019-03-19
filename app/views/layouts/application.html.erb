@@ -10,6 +10,13 @@
   </head>
 
   <body>
+
+    <div class="for_flash">
+      <% flash.each do |name, message|%>
+        <p> <% message %> </p>
+      <% end %>
+    </div>
+
     <div class="container">
       <header>
       <ul class="nav nav-tabs">
@@ -22,7 +29,6 @@
       </ul>
       
     </header>
-
 
     <%= yield %>
   </div>

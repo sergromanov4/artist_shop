@@ -1,27 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Orders</h1>
+<h1><%= t('.title_page') %></h1>
 
 <div class="my-flex-container">
 
     <% @orders.each do |order| %>
 
       <div class="card" style="width: 18rem;">
-          <%= image_tag order.image_for_order.url(:thumb), class:"card-img-top thumb" if order.image_for_order? %>
+          <%= image_tag order.image_for_order.url(:thumb) if order.image_for_order? %>
           <div class="card-body">
-            <h5 class="card-title">Title: <%= order.title %></h5>
-            <p><%= link_to 'More Info', order %></p>
-            <p class="card-text">Description: <%= order.description %></p>
-            <p class="card-text">Price: <%= number_to_currency(order.price) %></p>
-            <p class="card-text">Current status: <%= order.status.name %></p>
-          </div>
-          <hr />
-       </div>
-
-       
-
-  
+          <h5 class="card-title"><%= t('.title') %><%= order.title %></h5>
+          <p><%= link_to t('.more_info'), order %></p>
+          <p class="card-text"><%= t('.description') %><%= order.description %></p>
+          <p class="card-text"><%= t('.price') %><%= order.price %></p>
+          <p class="card-text"><%= t('.current_status') %><%= order.status.name %></p>
+      </div>
     <% end %>
-    </div>
-
-
+<br>

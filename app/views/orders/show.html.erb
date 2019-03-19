@@ -1,26 +1,21 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
-  <%= @order.title %> | <%= link_to 'Edit', edit_order_path(@order) %> 	
+  <strong><%= t('.title') %></strong>
+  <%= @order.title %>
 </p>
 
 <%= image_tag @order.image_for_order.url(:large) if @order.image_for_order? %>
 
 <p>
-  <strong>Description:</strong>
+  <strong><%= t('.description') %></strong>
   <%= @order.description %>
 </p>
 
 <p>
-  <strong>Price:</strong>
-  <%= number_to_currency(@order.price)%>
+  <strong><%= t('.price') %></strong>
+  <%= @order.price %>
 </p>
 
-<p>
-  <strong>Current status:</strong>
-  <%= @order.status.name%>
-</p>
-
-
-
+<%= link_to t('.edit'), edit_order_path(@order) %> |
+<%= link_to t('.back'), orders_path %>
