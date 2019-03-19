@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_18_110235) do
+ActiveRecord::Schema.define(version: 2019_03_18_132339) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2019_03_18_110235) do
     t.integer "status_id", default: 1
     t.string "image_for_order"
     t.integer "user_id"
+    t.string "painted_picture"
     t.index ["status_id"], name: "index_orders_on_status_id"
   end
 
