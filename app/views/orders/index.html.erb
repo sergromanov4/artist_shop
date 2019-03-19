@@ -6,11 +6,6 @@
 
     <% @orders.each do |order| %>
 
-
-
-
-
-
       <div class="card" style="width: 18rem;">
         <div class="card-img-top">
           <%= image_tag order.image_for_order.url(:thumb), class:"card-img-top" if order.image_for_order? %>

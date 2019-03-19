@@ -1,0 +1,28 @@
+
+<% @user.orders.each do |user|%>
+
+<div class="card" >
+        <div class="card-img-top">
+          <%= image_tag user.image_for_order.url(:thumb), class:"card-img-top" if user.image_for_order? %>
+            <br />
+            <br />
+          <%= image_tag user.painted_picture.url(:thumb), class:"card-img-top" if user.painted_picture? %>
+        </div> 
+
+          <div class="card-body">
+            <h4 class="card-title">Title: <%= user.title %> | id: <%= user.id %></h4> 
+            <p class="card-text">Description: <%= user.description %></p>
+             <% if user.price %>
+              <p class="card-text">Price: <%= number_to_currency(user.price) %></p>
+              <% else %>
+              <p>Not rated yet</p>
+            <% end %>
+            <p class="card-text">Current status: <%= user.status.name %></p>
+          </div>
+
+          <p><%= link_to 'More Info', user, class:"btn"  if user_signed_in?%> </p>
+
+          <hr />
+       </div>
+
+<% end %>

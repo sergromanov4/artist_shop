@@ -36,6 +36,7 @@
 </p>
 
 
+<%= link_to 'New message', new_order_message_path(@order) %>
 
 <% if user_signed_in? && current_user.id == @order.user_id && @order.status_id == 2%>
 	<p>Your order was raited</p>
@@ -43,9 +44,10 @@
 
 <% elsif  user_signed_in? && current_user.id == @order.user_id && @order.status_id == 4%>
 	<p>Your order was painted</p>
-	<p><%= link_to 'Edit', edit_order_path(@order) %> status When you paid order</p>
+	<p>Pay please</p>
 <% end %>
 
 
-
-
+<% @order.messages.each() do |message|  %>
+  <%= message.name %>
+<% end %>

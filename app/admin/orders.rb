@@ -11,5 +11,5 @@ ActiveAdmin.register Order do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
-permit_params :title, :description, :price, :status_id, :image_for_order, :painted_picture
+permit_params :title, :description, :price, :status_id, :image_for_order, :painted_picture, :messages
 end
