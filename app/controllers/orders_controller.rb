@@ -4,21 +4,26 @@ class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
   def index
-    @orders = Order.all
+    if params[:locale] 
+      redirect_to root_url(locale: params[:set_locale])
+    else
+      @orders = Order.all
+    end
+    
   end
 
   def show
   end
 
   def new
-    @order = Order.new
+    @order = current_user.orders.build
   end
 
   def edit
   end
 
   def create
-    @order = Order.new(order_params)
+    @order = current_user.orders.build(order_params)
      
     respond_to do |format|
       if @order.save
@@ -62,6 +67,6 @@ class OrdersController < ApplicationController
     end
 
     def order_params
-      params.require(:order).permit(:title, :description, :price, :image_for_order, :status_id, :user_id, :painted_picture)
+      params.require(:order).permit(:title, :description, :price, :image_for_order, :status_id, :user_id, :painted_picture,)
     end
 end

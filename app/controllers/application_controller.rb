@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
 
 	add_flash_types :not_found
 
+	protected 
+	
 	def set_i18n_locale_from_params
 		if params[:locale]
 			if I18n.available_locales.map(&:to_s).include?(params[:locale])

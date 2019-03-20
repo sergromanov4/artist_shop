@@ -50,9 +50,12 @@
 
 
 <% if user_signed_in? && current_user.id == @order.user_id%>
-  <h3>My messages</h3>
-<%= link_to t('.new_message'), new_order_message_path(@order) %>
-<br />
+
+  <h3><%= t('.my_messages') %></h3>
+
+  <%= link_to t('.new_message'), new_order_message_path(@order) %>
+  <br />
+
   <% @order.messages.each() do |message|  %>
     <div class="comments">
       <p> <%= t('.sender_name') %> <%= message.name %> </p> 

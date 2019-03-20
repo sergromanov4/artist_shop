@@ -35,6 +35,7 @@ en:
       new_message: "Write new message"
       sender_name: "Sender name:"
       pay: "Pay please or write about your comments"
+      my_messages: "My messages"
 
     create:
         notice: "Order was successfully created." 
