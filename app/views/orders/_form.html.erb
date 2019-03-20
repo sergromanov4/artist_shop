@@ -1,4 +1,3 @@
-
 <%= form_with(model: order, local: true) do |form| %>
   <% if order.errors.any? %>
     <div id="error_explanation">
@@ -25,6 +24,8 @@
     <%= form.submit %>
   </div>
 
+  <%= form.hidden_field :user_id, :value => current_user.id %>
+
 <%elsif @order.status_id == 4%>
   
   <div class="field">
@@ -34,6 +35,8 @@
   <div class="actions">
     <%= form.submit %>
   </div>
+
+  <%= form.hidden_field :user_id, :value => current_user.id %>
 
 <%else%>
 
@@ -59,7 +62,7 @@
   <%= form.file_field :image_for_order %>
 </div>
 
-
+  <%= form.hidden_field :user_id, :value => current_user.id %>
 
   <div class="actions">
     <%= form.submit %>

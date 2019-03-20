@@ -10,43 +10,43 @@
   </head>
 
   <body>
-    <div class="container">
-
+    <div class="container">     
       <header>
-
-      <ul class="nav nav-tabs">
-        <li class="nav-item">
-          <a class="nav-link active" href="/">All orders</a>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'Add new order', new_order_path , class:"nav-link" %>
-        </li>
-
-        <% if user_signed_in? %>
-           <li class="nav-item">
-              <%= link_to 'My orders', user_path(current_user) , class:"nav-link" %>
-           </li>
-
+        <ul class="nav nav-tabs">
           <li class="nav-item">
-            <%= link_to "Logout - #{current_user.email}", destroy_user_session_path, :method => :delete  , class:"nav-link" %>
-          </li>
-
-        <% else %>
-
-          <li class="nav-item">
-            <%= link_to 'Login', new_user_session_path , class:"nav-link" %>
+            <a class="nav-link active" href="/">All orders</a>
           </li>
           <li class="nav-item">
-            <%= link_to 'Registaration', new_user_registration_path , class:"nav-link" %>
+            <%= link_to 'Add new order', new_order_path , class:"nav-link" %>
           </li>
 
-        <% end %>
-   
-      </ul>
+          <% if user_signed_in? %>
+               <li class="nav-item">
+                  <%= link_to 'My orders', user_path(current_user) , class:"nav-link" %>
+               </li>
+
+              <li class="nav-item">
+                <%= link_to "Logout - #{current_user.email}", destroy_user_session_path, :method => :delete  , class:"nav-link" %>
+              </li>
+          <% else %>
+              <li class="nav-item">
+                <%= link_to 'Login', new_user_session_path , class:"nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Registaration', new_user_registration_path , class:"nav-link" %>
+              </li>
+          <% end %>
+        </ul>
     </header>
 
+    <div class="for_flash">
+      <% flash.each do |name, message|%>
+        <p> <% message %> </p>
+      <% end %>
+    </div>
 
     <%= yield %>
+
   </div>
   </body>
 </html>

@@ -12,11 +12,13 @@
           <div class="card-body">
             <h4 class="card-title">Title: <%= user.title %> | id: <%= user.id %></h4> 
             <p class="card-text">Description: <%= user.description %></p>
-             <% if user.price %>
+             
+            <% if user.price %>
               <p class="card-text">Price: <%= number_to_currency(user.price) %></p>
               <% else %>
               <p>Not rated yet</p>
             <% end %>
+            
             <p class="card-text">Current status: <%= user.status.name %></p>
           </div>
 

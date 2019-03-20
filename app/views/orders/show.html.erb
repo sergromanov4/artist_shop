@@ -36,7 +36,7 @@
 </p>
 
 
-<%= link_to 'New message', new_order_message_path(@order) %>
+
 
 <% if user_signed_in? && current_user.id == @order.user_id && @order.status_id == 2%>
 	<p>Your order was raited</p>
@@ -45,9 +45,19 @@
 <% elsif  user_signed_in? && current_user.id == @order.user_id && @order.status_id == 4%>
 	<p>Your order was painted</p>
 	<p>Pay please</p>
+
 <% end %>
 
-
-<% @order.messages.each() do |message|  %>
-  <%= message.name %>
+<% if user_signed_in? && current_user.id == @order.user_id%>
+<%= link_to 'New message', new_order_message_path(@order) %>
+<br />
+  <% @order.messages.each() do |message|  %>
+    <div class="comments">
+      <p> Sender name: <%= message.name %> </p> 
+      <p>
+        <%= message.text %>
+      </p> 
+      <hr />
+    </div>
+  <% end %>
 <% end %>

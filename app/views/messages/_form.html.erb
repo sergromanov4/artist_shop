@@ -25,6 +25,7 @@
     <%= form.text_area :text %>
   </div>
 
+  <%= form.hidden_field :email, :value => current_user.email %>
   <%= form.hidden_field :order_id, :value => message.order_id %>
 
 
