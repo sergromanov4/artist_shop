@@ -11,7 +11,7 @@ class MessagesController < ApplicationController
 	  
 	    respond_to do |format|
 	      if @message.save
-	        format.html { redirect_to user_path(current_user), notice: 'Message was successfully created.' }
+	        format.html { redirect_to order_path(@message.order_id), notice: t('.notice') }
 	        format.json { render :show, status: :created, location: @message }
 	      else
 	        format.html { render :new }
@@ -21,12 +21,11 @@ class MessagesController < ApplicationController
 	 end
 
 	private
-    # Use callbacks to share common setup or constraints between actions.
+  
     def set_message
-      @message = Message.find(params[:id])
+      @message = Message.find_by(id: params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def message_params
       params.require(:message).permit(:email, :name, :text, :order_id)
     end

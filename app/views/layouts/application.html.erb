@@ -14,26 +14,26 @@
       <header>
         <ul class="nav nav-tabs">
           <li class="nav-item">
-            <a class="nav-link active" href="/">All orders</a>
+            <a class="nav-link active" href="/"><%= t('.all_orders') %></a>
           </li>
           <li class="nav-item">
-            <%= link_to 'Add new order', new_order_path , class:"nav-link" %>
+            <%= link_to t('.new_order'), new_order_path , class:"nav-link" %>
           </li>
 
           <% if user_signed_in? %>
                <li class="nav-item">
-                  <%= link_to 'My orders', user_path(current_user) , class:"nav-link" %>
+                  <%= link_to t('.my_orders'), user_path(current_user) , class:"nav-link" %>
                </li>
 
               <li class="nav-item">
-                <%= link_to "Logout - #{current_user.email}", destroy_user_session_path, :method => :delete  , class:"nav-link" %>
+                <%= link_to t('.logout') + " - #{current_user.email}", destroy_user_session_path, :method => :delete  , class:"nav-link" %>
               </li>
           <% else %>
               <li class="nav-item">
-                <%= link_to 'Login', new_user_session_path , class:"nav-link" %>
+                <%= link_to t('.login'), new_user_session_path , class:"nav-link" %>
               </li>
               <li class="nav-item">
-                <%= link_to 'Registaration', new_user_registration_path , class:"nav-link" %>
+                <%= link_to t('.registaration'), new_user_registration_path , class:"nav-link" %>
               </li>
           <% end %>
         </ul>

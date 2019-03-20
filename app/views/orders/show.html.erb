@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
+  <strong><%= t('.title') %>Title:</strong>
   <%= @order.title %> 
 </p> 
 	<% if user_signed_in? && current_user.id == @order.user_id && @order.status_id < 2 %>
   		<p>
-	  		<%= link_to 'Edit', edit_order_path(@order) %>
+	  		<%= link_to t('.edit'), edit_order_path(@order) %>
 	  		|
-	 		<%= link_to 'Destroy', @order, method: :delete, data: { confirm: 'Are you sure?' } %>
+	 		<%= link_to t('.destroy'), @order, method: :delete, data: { confirm: 'Are you sure?' } %>
  		</p>  
   	<% end %>
 
@@ -17,21 +17,21 @@
 <%= image_tag @order.painted_picture.url(:large) if @order.painted_picture? %>
 
 <p>
-  <strong>Description:</strong>
+  <strong><%= t('.description') %></strong>
   <%= @order.description %>
 </p>
 
 <% if @order.price %>
   <p> 
-    <strong>Price:</strong>
+    <strong><%= t('.price') %></strong>
     <%= number_to_currency(@order.price)%>
   </p>
 <% else %>
-    <p>Not rated yet</p>
+    <p><%= t('.not_raited') %></p>
 <% end %>
 
 <p>
-  <strong>Current status:</strong>
+  <strong><%= t('.current_status') %></strong>
   <%= @order.status.name%>
 </p>
 
@@ -39,21 +39,23 @@
 
 
 <% if user_signed_in? && current_user.id == @order.user_id && @order.status_id == 2%>
-	<p>Your order was raited</p>
-	<p>If you agree with pay, <%= link_to 'Edit', edit_order_path(@order) %> status of your order to work</p>
+	<p><%= t('.raited') %></p>
+	<p>If you agree with pay, <%= link_to t('.edit'), edit_order_path(@order) %> status of your order to work</p>
 
 <% elsif  user_signed_in? && current_user.id == @order.user_id && @order.status_id == 4%>
-	<p>Your order was painted</p>
-	<p>Pay please</p>
+	<p><%= t('.painted') %></p>
+	<p><%= t('.pay') %></p>
 
 <% end %>
 
+
 <% if user_signed_in? && current_user.id == @order.user_id%>
-<%= link_to 'New message', new_order_message_path(@order) %>
+  <h3>My messages</h3>
+<%= link_to t('.new_message'), new_order_message_path(@order) %>
 <br />
   <% @order.messages.each() do |message|  %>
     <div class="comments">
-      <p> Sender name: <%= message.name %> </p> 
+      <p> <%= t('.sender_name') %> <%= message.name %> </p> 
       <p>
         <%= message.text %>
       </p> 
