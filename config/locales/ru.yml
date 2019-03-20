@@ -8,6 +8,7 @@ ru:
       logout: "Выход"
       login: "Войти"
       registaration: "Регистрация"
+      locale_not_available: "Перевод не доступен"
 
   orders:
     index:
@@ -74,3 +75,12 @@ ru:
 
     create:
         notice: "Новый пользователь успешно создан" 
+
+  messages:
+    form:
+      error: "Сообщение не может быть отправлено"
+      email: "e-mail: "
+      id: "ID: "
+
+    new:
+      title: "Новое сообщение"

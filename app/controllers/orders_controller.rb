@@ -28,10 +28,8 @@ class OrdersController < ApplicationController
     respond_to do |format|
       if @order.save
         format.html { redirect_to @order, notice: t('.notice')}
-        format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new }
-        format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -41,10 +39,8 @@ class OrdersController < ApplicationController
     respond_to do |format|
       if @order.update(order_params)
         format.html { redirect_to @order, notice: t('.notice')}
-        format.json { render :show, status: :ok, location: @order }
       else
         format.html { render :edit }
-        format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -60,13 +56,14 @@ class OrdersController < ApplicationController
   private
 
     def set_order
-      @order = Order.find_by(id: params[:id])
-      if @order == nil
-        redirect_to root_path, not_found: t('.not_found')
-      end
+      @order = current_user.orders.find_by(id: params[:id])
+      # @order = Order.find_by(id: params[:id])
+      redirect_to root_path, not_found: t('.not_found') unless @order
     end
 
     def order_params
-      params.require(:order).permit(:title, :description, :price, :image_for_order, :status_id, :user_id, :painted_picture,)
+      params.require(:order).permit(:title, :description, :price, 
+                                    :image_for_order, :status_id, 
+                                    :painted_picture )
     end
 end

@@ -1,5 +1,4 @@
 en:
-  
   layouts:
     application:
       all_orders: "All orders"
@@ -8,6 +7,7 @@ en:
       logout: "Logout"
       login: "Login"
       registaration: "Registaration"
+      locale_not_available: "translation not available"
 
   orders:
     index:
@@ -74,3 +74,12 @@ en:
 
     create:
         notice: "Order was successfully created." 
+
+  messages:
+    form:
+      error: "prohibited this message from being saved:"
+      email: "e-mail: "
+      id: "ID: "
+
+    new:
+      title: "New message"

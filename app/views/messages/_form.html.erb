@@ -1,19 +1,20 @@
 <%= form_for(message, url: order_messages_path(), local: true) do |form| %>
   <% if message.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(message.errors.count, "error") %> prohibited this message from being saved:</h2>
-
+      <h2><%= pluralize(message.errors.count, "error") %><%= t('.error')%></h2>
       <ul>
-      <% message.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% message.errors.full_messages.each do |message| %>
+         <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
-
   
-  <p>email: <%= current_user.email %> | id: <%= current_user.id %></p>
-
+  <p>
+    <%= t('.email')%><%= current_user.email %> 
+      | 
+    <%= t('.id')%> <%= current_user.id %>
+  </p>
 
   <div class="field">
     <%= form.label :name %>
@@ -24,10 +25,6 @@
     <%= form.label :text %>
     <%= form.text_area :text %>
   </div>
-
-  <%= form.hidden_field :email, :value => current_user.email %>
-  <%= form.hidden_field :order_id, :value => message.order_id %>
-
 
   <div class="actions">
     <%= form.submit %>
