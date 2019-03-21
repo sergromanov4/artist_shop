@@ -5,7 +5,13 @@ Rails.application.routes.draw do
 
   resources :orders do
   	resources :messages
+
+    member do
+      get 'click_to_work'
+      get 'click_to_complete'
+    end
   end
+
 
   scope '(:locale)' do
     resources :orders

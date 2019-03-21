@@ -28,7 +28,7 @@ class Order < ApplicationRecord
       transitions from: :work, to: :check
     end
 
-    event :go_to_complited do
+    event :go_to_completed do
       transitions from: :check, to: :completed
     end
 

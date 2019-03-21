@@ -37,9 +37,9 @@ en:
       pay: "Pay please or write about your comments"
       my_messages: "My messages"
       status_to_work: "If you agree with pay, Change status of your order to work"
-      button_to_work: "Change status to complete"
+      button_to_work: "Change status to work"
       status_to_complete: "Pay order plese"
-      button_to_complete: "Change status to work"
+      button_to_complete: "Change status to complete"
 
     create:
         notice: "Order was successfully created." 

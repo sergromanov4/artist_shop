@@ -34,18 +34,19 @@ p
     = t('.raited')
   p
     = t('.status_to_work')
-  = button_tag t('.button_to_work'), :value => @order.state_to_work
+  = link_to t('.button_to_work'), click_to_work_order_path()
   
 - elsif  user_signed_in? && current_user.id == @order.user_id && @status.step == 4
   p
     = t('.painted')
   p
     = t('.pay')
-  <%= button_tag t('.button_to_complete'), :value => @order.state_to_completed
+  = link_to t('.button_to_complete'), click_to_complete_order_path()
+
 - if user_signed_in? && current_user.id == @order.user_id
   h3
     = t('.my_messages')
-  = link_to t('.new_message'), new_order_message_path(@order) 
+  = link_to t('.new_message'), new_order_message_path(@order)
   - @order.messages.each() do |message|
     div class="comments"
       p
@@ -54,3 +55,4 @@ p
       p
         = message.text 
       hr
+
