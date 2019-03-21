@@ -4,7 +4,7 @@
   <strong><%= t('.title') %>Title:</strong>
   <%= @order.title %> 
 </p> 
-<% if user_signed_in? && current_user.id == @order.user_id && @order.status_id < 2 %>
+<% if user_signed_in? && current_user.id == @order.user_id && @status.step < 2 %>
   <p>
     <%= link_to t('.edit'), edit_order_path(@order) %>  
     |  
@@ -37,15 +37,14 @@
 
 <% if user_signed_in? && current_user.id == @order.user_id && @status.step == 2%>
   <p><%= t('.raited') %></p>
-  <p>If you agree with pay, status of your order to work</p>
+  <p><%= t('.status_to_work') %></p>
 
-  <%= button_tag "Change status to work", :value => @order.state_to_work %>
+  <%= button_tag t('.button_to_work'), :value => @order.state_to_work %>
   
 <% elsif  user_signed_in? && current_user.id == @order.user_id && @status.step == 4%>
   <p><%= t('.painted') %></p>
   <p><%= t('.pay') %></p>
-  
-  <%= button_tag "Change status to complite", :value => @order.state_to_complited %>
+  <%= button_tag t('.button_to_complete'), :value => @order.state_to_completed %>
 <% end %>
 
 

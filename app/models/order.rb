@@ -14,7 +14,7 @@ class Order < ApplicationRecord
     state :rated
     state :work
     state :check
-    state :complited
+    state :completed
 
     event :go_to_rated do
       transitions from: :new, to: :rated
@@ -29,7 +29,7 @@ class Order < ApplicationRecord
     end
 
     event :go_to_complited do
-      transitions from: :check, to: :complited
+      transitions from: :check, to: :completed
     end
 
   end
@@ -38,8 +38,8 @@ class Order < ApplicationRecord
     self.go_to_work!
   end
 
-  def state_to_complited
-    self.go_to_complited!
+  def state_to_completed
+    self.go_to_completed!
   end
 
 end

@@ -13,22 +13,6 @@
 
   <p>email: <%= current_user.email %> | id: <%= current_user.id %></p>
 
-  <% if @order.status_id == 2%>
-
-    <div class="field">
-      <%= form.label :status_id,  t('.status')  %>
-      <%= form.collection_select :status_id, Status.find(2,3), :id,:name %>
-    </div>
-
-  <%elsif @order.status_id == 4%>
-    
-    <div class="field">
-      <%= form.label :status_id,  t('.status')   %>
-      <%= form.collection_select :status_id, Status.find(4,5), :id,:name %>
-    </div>
-
-  <%else%>
-
     <div class="field">
       <%= form.label :title,  t('.title')  %>
       <%= form.text_field :title %>
@@ -42,9 +26,6 @@
     <div class="field">
       <%= form.file_field :image_for_order  %>
     </div>
-  <% end %>
-
-    <%= form.hidden_field :user_id, :value => current_user.id %>
       
     <div class="actions">
         <%= form.submit t('.submit')  %>

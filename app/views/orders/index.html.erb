@@ -23,7 +23,7 @@
         <% else %>
           <p><%= t('.not_raited') %></p>
         <% end %>
-        <p class="card-text"><%= t('.current_status') %><%= order.status.name %></p>
+        <p class="card-text"><%= t('.current_status') %><%= order.state %></p>
       </div>
 
       <p><%= link_to t('.more_info'), order, class:"btn"  if user_signed_in?%> </p>
