@@ -4,34 +4,32 @@
 
 <div class="my-flex-container">
 
-    <% @orders.each do |order| %>
+  <% @orders.each do |order| %>
 
-      <div class="card" style="width: 18rem;">
-        <div class="card-img-top">
-          <%= image_tag order.image_for_order.url(:thumb), class:"card-img-top" if order.image_for_order? %>
-            <br />
-            <br />
-          <%= image_tag order.painted_picture.url(:thumb), class:"card-img-top" if order.painted_picture? %>
-        </div> 
+    <div class="card" style="width: 18rem;">
+      <div class="card-img-top">
+        <%= image_tag order.image_for_order.url(:thumb), class:"card-img-top" if order.image_for_order? %>
+        <br />
+        <br />
+        <%= image_tag order.painted_picture.url(:thumb), class:"card-img-top" if order.painted_picture? %>
+      </div> 
 
-          <div class="card-body">
-            <h4 class="card-title"><%= t('.title') %><%= order.title %> | id: <%= order.id %></h4> 
-            <p class="card-text"><%= t('.сustomer') %><%= order.user.email %></p>
-            <p class="card-text"><%= t('.description') %><%= order.description %></p>
-             <% if order.price %>
-              <p class="card-text"><%= t('.price') %><%= number_to_currency(order.price) %></p>
-              <% else %>
-              <p><%= t('.not_raited') %></p>
-            <% end %>
-            <p class="card-text"><%= t('.current_status') %><%= order.status.name %></p>
-          </div>
+      <div class="card-body">
+        <h4 class="card-title"><%= t('.title') %><%= order.title %> | id: <%= order.id %></h4> 
+        <p class="card-text"><%= t('.сustomer') %><%= order.user.email %></p>
+        <p class="card-text"><%= t('.description') %><%= order.description %></p>
+        <% if order.price %>
+          <p class="card-text"><%= t('.price') %><%= number_to_currency(order.price) %></p>
+        <% else %>
+          <p><%= t('.not_raited') %></p>
+        <% end %>
+        <p class="card-text"><%= t('.current_status') %><%= order.status.name %></p>
+      </div>
 
-          <p><%= link_to t('.more_info'), order, class:"btn"  if user_signed_in?%> </p>
-
-          <hr />
-       </div>
-
-    <% end %>
+      <p><%= link_to t('.more_info'), order, class:"btn"  if user_signed_in?%> </p>
+      <hr />
     </div>
+  <% end %>
+</div>
 
 

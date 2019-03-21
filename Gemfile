@@ -12,6 +12,8 @@ gem "rmagick"
 gem 'devise'
 gem 'activeadmin'
 
+gem 'aasm'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2', '>= 5.2.2.1'

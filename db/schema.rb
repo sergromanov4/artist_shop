@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_19_064730) do
+ActiveRecord::Schema.define(version: 2019_03_21_080428) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 2019_03_19_064730) do
     t.string "image_for_order"
     t.integer "user_id"
     t.string "painted_picture"
+    t.string "state", default: "new"
     t.index ["status_id"], name: "index_orders_on_status_id"
   end
 
@@ -64,6 +65,7 @@ ActiveRecord::Schema.define(version: 2019_03_19_064730) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "step"
   end
 
   create_table "users", force: :cascade do |t|
