@@ -1,0 +1,38 @@
+p id="notice" = notice
+
+h1 = t('.title_page')
+
+div class="my-flex-container"
+  - @orders.each do |order|
+      div class="card" style="width: 18rem;"
+        div class="card-img-top"
+          = image_tag order.image_for_order.url(:thumb), class:"card-img-top" if order.image_for_order? 
+          br
+          br
+          = image_tag order.painted_picture.url(:thumb), class:"card-img-top" if order.painted_picture? 
+        div class="card-body"
+          h4 class="card-title"
+            = t('.title') 
+            = order.title 
+          p class="card-text"
+            = t('.сustomer') 
+            = order.user.email
+          p class="card-text"
+            = t('.description') 
+            = order.description 
+          - if order.price 
+            p class="card-text"
+                = t('.price') 
+                = number_to_currency(order.price) 
+          - else
+            p
+              = t('.price') 
+              = t('.not_raited') 
+          p class="card-text"
+            = t('.current_status') 
+            = order.state 
+        p
+          = link_to t('.more_info'), order, class:"btn"  if user_signed_in?
+        hr
+
+

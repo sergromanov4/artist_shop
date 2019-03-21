@@ -1,0 +1,56 @@
+p id="notice"
+  = notice 
+p
+  strong 
+    = t('.title')
+    = @order.title
+- if user_signed_in? && current_user.id == @order.user_id && @status.step < 2 
+  p
+    = link_to t('.edit'), edit_order_path(@order)
+    |  |  
+    = link_to t('.destroy'), @order, method: :delete, data: { confirm: 'Are you sure?' }
+= image_tag @order.image_for_order.url(:large) if @order.image_for_order? 
+= image_tag @order.painted_picture.url(:large) if @order.painted_picture? 
+p
+  strong 
+    = t('.description')
+  = @order.description
+- if @order.price
+  p 
+    strong 
+      = t('.price')
+    = number_to_currency(@order.price)
+- else
+  p
+    strong 
+      = t('.price')
+    = t('.not_raited')
+p
+  strong
+    = t('.current_status')
+  = @order.state
+- if user_signed_in? && current_user.id == @order.user_id && @status.step == 2
+  p
+    = t('.raited')
+  p
+    = t('.status_to_work')
+  = button_tag t('.button_to_work'), :value => @order.state_to_work
+  
+- elsif  user_signed_in? && current_user.id == @order.user_id && @status.step == 4
+  p
+    = t('.painted')
+  p
+    = t('.pay')
+  <%= button_tag t('.button_to_complete'), :value => @order.state_to_completed
+- if user_signed_in? && current_user.id == @order.user_id
+  h3
+    = t('.my_messages')
+  = link_to t('.new_message'), new_order_message_path(@order) 
+  - @order.messages.each() do |message|
+    div class="comments"
+      p
+        = t('.sender_name') 
+        = message.name
+      p
+        = message.text 
+      hr
