@@ -1,0 +1,90 @@
+ru:
+  
+  layouts:
+    application:
+      all_orders: "Все заказы"
+      new_order: "Добавить новый заказ"
+      my_orders: "Мои заказы"
+      logout: "Выход"
+      login: "Войти"
+      registaration: "Регистрация"
+      locale_not_available: "Перевод не доступен"
+
+  orders:
+    index:
+      title_page: "Все заказы"
+      title: "Заголовок: "
+      description: "Описание: "
+      сustomer: "Заказчик: "
+      price: "Цена: "
+      current_status: "Статус заказа: "
+      more_info : "Подробнее"
+      not_raited: "Заказ еще не оценен"
+
+    show:
+      title: "Заголовок: "
+      description: "Описание: "
+      сustomer: "Заказчик: "
+      price: "Цена: "
+      current_status: "Статус заказа: "
+      edit: "Изменить"
+      destroy: "Удалить заказ"
+      back: "Назад"
+      not_raited: "Заказ еще не оценен"
+      raited: "Ваш заказ оценен" 
+      painted: "Ваш заказ нарисован"
+      new_message: "Написать сообщение"
+      sender_name: "Отправитель:"
+      pay: "Олатите заказ или сообщите о своих замечаниях"
+      my_messages: "Мои сообщения"
+      status_to_work: "Если вы согласны с ценой, то измените статус заказа"
+      button_to_work: "Изменить статус на 'в работе'"
+      status_to_complete: "Оплатите заказ"
+      button_to_complete: "Изменить статус на 'завершен'"
+
+    create:
+        notice: "Заказ успешно создан" 
+    update:
+        notice: "Заказ успешно обнавлен" 
+    destroy:
+        notice: "Заказ успешно удален"
+    
+    edit:
+      title: "Редактирование заказа"
+      show: "Показать" 
+      back: "Назад" 
+
+    new:
+      title: "Добавить новый заказ" 
+      back: "Назад" 
+
+    form:
+      title: "Заголовок"
+      description: "Описание"
+      status: "Статус"
+      submit: 'Сохранить заказ'
+      image: "Добавить картинку"
+  
+
+  users:
+    show:
+      title_page: "Все мои заказы"
+      title: "Заголовок: "
+      description: "Описание: "
+      сustomer: "Заказчик: "
+      price: "Цена: "
+      current_status: "Статус заказа: "
+      more_info : "Подробнее"
+      not_raited: "Заказ еще не оценен"
+
+    create:
+        notice: "Новый пользователь успешно создан" 
+
+  messages:
+    form:
+      error: "Сообщение не может быть отправлено"
+      email: "e-mail: "
+      id: "ID: "
+
+    new:
+      title: "Новое сообщение"

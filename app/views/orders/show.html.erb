@@ -1,0 +1,65 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong><%= t('.title') %>Title:</strong>
+  <%= @order.title %> 
+</p> 
+<% if user_signed_in? && current_user.id == @order.user_id && @status.step < 2 %>
+  <p>
+    <%= link_to t('.edit'), edit_order_path(@order) %>  
+    |  
+    <%= link_to t('.destroy'), @order, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </p>  
+<% end %>
+
+<%= image_tag @order.image_for_order.url(:large) if @order.image_for_order? %>
+
+<%= image_tag @order.painted_picture.url(:large) if @order.painted_picture? %>
+
+<p>
+  <strong><%= t('.description') %></strong>
+  <%= @order.description %>
+</p>
+
+<% if @order.price %>
+  <p> 
+    <strong><%= t('.price') %></strong>
+    <%= number_to_currency(@order.price)%>
+  </p>
+<% else %>
+    <p><%= t('.not_raited') %></p>
+<% end %>
+
+<p>
+  <strong><%= t('.current_status') %></strong>
+  <%= @order.state %>
+</p>
+
+<% if user_signed_in? && current_user.id == @order.user_id && @status.step == 2%>
+  <p><%= t('.raited') %></p>
+  <p><%= t('.status_to_work') %></p>
+
+  <%= button_tag t('.button_to_work'), :value => @order.state_to_work %>
+  
+<% elsif  user_signed_in? && current_user.id == @order.user_id && @status.step == 4%>
+  <p><%= t('.painted') %></p>
+  <p><%= t('.pay') %></p>
+  <%= button_tag t('.button_to_complete'), :value => @order.state_to_completed %>
+<% end %>
+
+
+<% if user_signed_in? && current_user.id == @order.user_id%>
+  <h3><%= t('.my_messages') %></h3>
+  <%= link_to t('.new_message'), new_order_message_path(@order) %>
+  <br />
+
+  <% @order.messages.each() do |message|  %>
+    <div class="comments">
+      <p> <%= t('.sender_name') %> <%= message.name %> </p> 
+      <p>
+        <%= message.text %>
+      </p> 
+      <hr />
+    </div>
+  <% end %>
+<% end %>
