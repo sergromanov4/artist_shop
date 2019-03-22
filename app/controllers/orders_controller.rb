@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!, except:[:index]
 
   before_action :set_order, only: [:show, :edit, :update, :destroy, 
-                                   :click_to_work, :click_to_complete]
+                                   :click_to_work, :click_to_complete, :upload_image ]
   before_action :find_status, only: [:show]
 
   def index
@@ -64,6 +64,9 @@ class OrdersController < ApplicationController
     redirect_to @order
   end
 
+  def upload_image
+    redirect_to @order.painted_picture.url
+  end
 
   private
 

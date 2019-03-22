@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     member do
       get 'click_to_work'
       get 'click_to_complete'
+      get 'upload_image'
     end
   end
 
