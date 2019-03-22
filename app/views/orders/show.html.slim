@@ -43,7 +43,7 @@ p
     = t('.pay')
   = link_to t('.button_to_complete'), click_to_complete_order_path()
 
-- elsif  user_signed_in? && current_user.id == @order.user_id && @status.step == 5
+- elsif  user_signed_in? && current_user.id == @order.user_id && @order.completed?
   p
     = t('.text_upload')
 
