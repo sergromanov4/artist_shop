@@ -3,7 +3,6 @@ class OrdersController < ApplicationController
 
   before_action :set_order, only: [:show, :edit, :update, :destroy, 
                                    :click_to_work, :click_to_complete, :upload_image ]
-  before_action :find_status, only: [:show]
 
   def index
     if params[:locale] 
@@ -70,10 +69,6 @@ class OrdersController < ApplicationController
 
   private
 
-    def find_status
-      @status = Status.find_by(name: @order.state)
-    end
-
     def set_order
       @order = current_user.orders.find_by(id: params[:id])
       # @order = Order.find_by(id: params[:id])
@@ -82,7 +77,6 @@ class OrdersController < ApplicationController
 
     def order_params
       params.require(:order).permit(:title, :description, :price, 
-                                    :image_for_order, :status_id, 
-                                    :painted_picture )
+                                    :image_for_order, :painted_picture )
     end
 end

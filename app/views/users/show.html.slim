@@ -23,7 +23,7 @@ h1
               = t('.not_raited')
         p class="card-text"
           = t('.current_status') 
-          = user.status.name
+          = user.state
         p
         = link_to t('.more_info'), user, class:"btn"  if user_signed_in?
         hr 
