@@ -1,7 +1,5 @@
 class Order < ApplicationRecord
     include AASM
-
-    belongs_to :status
     belongs_to :user
     has_many :messages, dependent: :destroy
 

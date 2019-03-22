@@ -4,7 +4,7 @@ p
   strong 
     = t('.title')
     = @order.title
-- if user_signed_in? && current_user.id == @order.user_id && @status.step < 2 
+- if user_signed_in? && current_user.id == @order.user_id && @order.new? || @order.rated? 
   p
     = link_to t('.edit'), edit_order_path(@order)
     |  |  
@@ -29,21 +29,21 @@ p
   strong
     = t('.current_status')
   = @order.state
-- if user_signed_in? && current_user.id == @order.user_id && @status.step == 2
+- if user_signed_in? && current_user.id == @order.user_id && @order.may_go_to_work?
   p
     = t('.raited')
   p
     = t('.status_to_work')
   = link_to t('.button_to_work'), click_to_work_order_path()
   
-- elsif  user_signed_in? && current_user.id == @order.user_id && @status.step == 4
+- elsif  user_signed_in? && current_user.id == @order.user_id && @order.may_go_to_completed?
   p
     = t('.painted')
   p
     = t('.pay')
   = link_to t('.button_to_complete'), click_to_complete_order_path()
 
-- elsif  user_signed_in? && current_user.id == @order.user_id && @status.step == 5
+- elsif  user_signed_in? && current_user.id == @order.user_id && @order.completed?
   p
     = t('.text_upload')
 
