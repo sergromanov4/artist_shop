@@ -1,7 +1,8 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!, except:[:index]
 
-  before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :set_order, only: [:show, :edit, :update, :destroy, 
+                                   :click_to_work, :click_to_complete, :upload_image ]
   before_action :find_status, only: [:show]
 
   def index
@@ -36,7 +37,6 @@ class OrdersController < ApplicationController
   end
 
   def update
-    
     respond_to do |format|
       if @order.update(order_params)
         format.html { redirect_to @order, notice: t('.notice')}
@@ -54,6 +54,19 @@ class OrdersController < ApplicationController
     end
   end
 
+  def click_to_work
+    @order.state_to_work
+    redirect_to @order
+  end
+
+  def click_to_complete
+    @order.state_to_completed
+    redirect_to @order
+  end
+
+  def upload_image
+    redirect_to @order.painted_picture.url
+  end
 
   private
 

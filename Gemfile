@@ -14,6 +14,8 @@ gem 'activeadmin'
 
 gem 'aasm'
 
+gem 'slim'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2', '>= 5.2.2.1'

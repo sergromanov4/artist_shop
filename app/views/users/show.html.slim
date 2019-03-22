@@ -1,0 +1,29 @@
+h1
+  = t('.title_page')
+- @user.orders.each do |user|
+    div class="card" 
+      div class="card-img-top"
+        = image_tag user.image_for_order.url(:thumb), class:"card-img-top" if user.image_for_order?
+        br
+        br
+        = image_tag user.painted_picture.url(:thumb), class:"card-img-top" if user.painted_picture?
+      div class="card-body"
+        h4 class="card-title"
+          = t('.title')
+          = user.title
+        p class="card-text"
+          = t('.description')
+          = user.description
+        - if user.price 
+            p class="card-text"
+              = t('.price') 
+              = number_to_currency(user.price)
+        - else 
+            p
+              = t('.not_raited')
+        p class="card-text"
+          = t('.current_status') 
+          = user.status.name
+        p
+        = link_to t('.more_info'), user, class:"btn"  if user_signed_in?
+        hr 
