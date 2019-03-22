@@ -64,7 +64,7 @@ class OrdersController < ApplicationController
   end
 
   def upload_image
-    redirect_to @order.painted_picture.url
+    send_file @order.painted_picture.path
   end
 
   private
