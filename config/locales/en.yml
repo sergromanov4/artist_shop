@@ -1,6 +1,7 @@
 en:
   layouts:
     application:
+      site_title: "Artist shop"
       all_orders: "All orders"
       new_order: "Add new order"
       my_orders: "My orders"
