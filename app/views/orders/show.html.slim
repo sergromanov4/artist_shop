@@ -29,14 +29,14 @@ p
   strong
     = t('.current_status')
   = @order.state
-- if user_signed_in? && current_user.id == @order.user_id && @status.step == 2
+- if user_signed_in? && current_user.id == @order.user_id && @order.may_go_to_work?
   p
     = t('.raited')
   p
     = t('.status_to_work')
   = link_to t('.button_to_work'), click_to_work_order_path()
   
-- elsif  user_signed_in? && current_user.id == @order.user_id && @status.step == 4
+- elsif  user_signed_in? && current_user.id == @order.user_id && @order.may_go_to_completed?
   p
     = t('.painted')
   p
