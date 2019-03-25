@@ -8,6 +8,11 @@ gem 'bootstrap-sass', '~> 2.3.2.0'
 
 gem 'carrierwave', '~> 1.0'
 gem "rmagick"
+gem 'carrierwave-aws'
+
+# gem 'fog-aws'
+# gem 'fog'
+
 
 gem 'devise'
 gem 'activeadmin'
@@ -15,7 +20,6 @@ gem 'activeadmin'
 gem 'aasm'
 
 gem 'slim'
-
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2', '>= 5.2.2.1'

@@ -64,7 +64,8 @@ class OrdersController < ApplicationController
   end
 
   def upload_image
-    send_file @order.painted_picture.path
+      data = open(@order.painted_picture.url) 
+      send_data data.read
   end
 
   private
