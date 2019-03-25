@@ -64,15 +64,14 @@ class OrdersController < ApplicationController
   end
 
   def upload_image
-      data = open(@order.painted_picture.url) 
-      send_data data.read
+    data = open(@order.painted_picture.url) 
+    send_data data.read
   end
 
   private
 
     def set_order
       @order = current_user.orders.find_by(id: params[:id])
-      # @order = Order.find_by(id: params[:id])
       redirect_to root_path, not_found: t('.not_found') unless @order
     end
 

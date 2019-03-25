@@ -10,9 +10,7 @@ gem 'carrierwave', '~> 1.0'
 gem "rmagick"
 gem 'carrierwave-aws'
 
-# gem 'fog-aws'
-# gem 'fog'
-
+gem 'dotenv-rails', :groups => [:development, :test]
 
 gem 'devise'
 gem 'activeadmin'
